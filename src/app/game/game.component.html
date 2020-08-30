@@ -1,0 +1,20 @@
+<button (click)="setHomeScore()">Set Home</button>
+<button (click)="setAwayScore()">Set Away</button>
+<button (click)="resetScore()">ResetScore</button>
+
+<form (ngSubmit)="setGame()" [formGroup]="gameForm">
+  <label>
+    Home: 
+    <input type="text" formControlName="home">
+  </label>
+  <label>
+    Away:
+    <input type="text" formControlName="away">
+    <button type="submit">Set Game</button>
+  </label>
+</form>
+
+<div>
+  <h3>Home: {{home$ | async}}</h3>
+  <h3>Away: {{away$ | async}}</h3>
+</div>

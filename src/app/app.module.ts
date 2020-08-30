@@ -1,14 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms'
+
+import { StoreModule } from '@ngrx/store';
+import { scoreboardReducer } from './store/scoreboard.reducer';
 
 import { AppComponent } from './app.component';
+import { GameComponent } from './game/game.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    StoreModule.forRoot({game: scoreboardReducer }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
